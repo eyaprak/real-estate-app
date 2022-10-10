@@ -1,0 +1,22 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    fontFamily: {
+      'poppins': 'Poppins',
+      'righteous': 'Righteous',
+    },
+
+    extend: {
+      colors: {
+        'primary': '#00B97C',
+        'second': "#FCD000",
+        'special': '#00B97C transparent  transparent transparent',
+      },
+    },
+  },
+  plugins: [],
+}

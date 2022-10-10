@@ -1,0 +1,12 @@
+{
+    "menuData": [
+        {
+            "name": "buy",
+            "purpose": "for-buy"
+        },
+        {
+            "name": "rent",
+            "purpose": "for-rent"
+        }
+    ]
+}

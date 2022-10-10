@@ -1,26 +1,38 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    @font-face {
+        font-family: 'Poppins';
+        font-weight: 600;
+        font-display: swap;
+        src: url('../public/assets/fonts/Poppins-SemiBold.ttf') format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-display: swap;
+        src: url('../public/assets/fonts/Poppins-Regular.ttf') format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        font-weight: 500;
+        font-display: swap;
+        src: url('../public/assets/fonts/Poppins-Medium.ttf') format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Righteous';
+        font-weight: 500;
+        font-display: swap;
+        src: url('../public/assets/fonts/Righteous-Regular.ttf') format("truetype");
+    }
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+    background: #F2F2F2;
 }
