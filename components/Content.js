@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import HouseList from './HouseList/HouseList';
 import Map from './Map';
-import { options, getData } from '../../utils/getData'
+import { options, getData } from '../utils/getData'
 import { InfinitySpin } from "react-loader-spinner";
 import Navbar from './Navbar';
 
@@ -24,17 +24,12 @@ const Content = () => {
     useEffect(() => {
         if (filters.bed) {
             options.params.roomsMin = filters.bed;
-
         }
         if (filters.bath) {
             options.params.bathsMin = filters.bath;
         }
-        if (filters.minPrice) {
-            options.params.priceMin = filters.minPrice;
-        }
-        if (filters.maxPrice) {
-            options.params.priceMax = filters.maxPrice;
-        }
+        options.params.priceMin = filters.minPrice;
+        options.params.priceMax = filters.maxPrice;
         if (filters.purpose) {
             options.params.purpose = filters.purpose;
         }
@@ -46,20 +41,21 @@ const Content = () => {
             setLoading(true);
             const response = await getData('https://bayut.p.rapidapi.com/properties/list', options);
             setHouses(response);
+            console.log(response)
             setLoading(false);
         }
         fetchData();
+
     }, [filters])
 
-
     useEffect(() => {
-        if (houses.length > 0) {
+        if (houses?.hits?.length > 0 && !loading) {
             setPosition({
-                lat: houses[0].geography.lat,
-                lng: houses[0].geography.lng
+                lat: houses.hits[0].geography.lat,
+                lng: houses.hits[0].geography.lng
             })
         }
-    }, [houses])
+    }, [houses, loading])
 
 
     if (houses.length === 0) return (
@@ -75,7 +71,7 @@ const Content = () => {
     return (
         <>
             <Navbar setFilters={setFilters} filters={filters} />
-            <div className="px-16 py-10 flex gap-10 mx-auto">
+            <div className="px-2 md:px-16 py-6 flex gap-10 mx-auto flex-col md:flex-row">
                 <Map houses={houses} position={position} />
                 <HouseList loading={loading} filters={filters} houses={houses} setFilters={setFilters} setPosition={setPosition} />
 

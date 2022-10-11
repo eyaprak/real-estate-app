@@ -1,7 +1,7 @@
 import axios from 'axios';
 export const options = {
     headers: {
-        'X-RapidAPI-Key': 'ac3e79d3efmsh5790252316b588ep1319c2jsnbd9737dab9ff',
+        'X-RapidAPI-Key': process.env.MAPS_API_KEY,
         'X-RapidAPI-Host': 'bayut.p.rapidapi.com',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': ''

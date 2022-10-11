@@ -1,15 +1,17 @@
-import Image from 'next/image'
-import data from '../../utils/menus.json';
+import data from '../utils/menus.json';
 import { BsFillBellFill, BsSearch } from 'react-icons/bs'
+import Image from 'next/image';
+
 const Navbar = ({ setFilters, filters }) => {
     return (
-        <div className="w-full bg-primary m-h-['100px'] py-4 px-16">
+        <div className="w-full bg-primary m-h-['100px'] py-4 px-2 md:px-16">
             <div className="flex items-center justify-between">
                 <div>
-                    <p className="font-righteous font-normal text-3xl text-white">MyProperty</p>
+                    <p className="font-righteous font-normal text-xl md:text-3xl text-white">MyProperty</p>
                 </div>
-                <div className="relative">
-                    <input type="text" placeholder="Search Location..." className="py-3 px-2 rounded-md text-red w-full text-xs min-w-[300px] outline-none" />
+                <div className="relative hidden md:block">
+                    <input type="text" placeholder="Search Location..." className="py-3 px-2 rounded-md text-red w-full text-xs min-w-[300px] outline-none"
+                    />
                     <button className="absolute flex items-center justify-center right-2 top-1 bg-primary w-8 h-8 rounded-md py-2 px-2">
                         <BsSearch color="white" />
                     </button>
@@ -34,7 +36,7 @@ const Navbar = ({ setFilters, filters }) => {
                     <a className="relative after:bg-red-500 after:w-2 after:h-2 after:absolute after:top-0 after:right-0 after:rounded-xl cursor-pointer">
                         <BsFillBellFill color="white" />
                     </a>
-                    <Image src="/images/profile.jpg" className="rounded-full" width={38} height={38} alt="Profile image"/>
+                    <Image src="/images/profile.jpg" width={38} height={38} className="rounded-full" alt="Profile image" />
                 </div>
             </div>
         </div>

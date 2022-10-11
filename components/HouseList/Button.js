@@ -2,8 +2,8 @@ import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const Button = ({ filters, setFilters, itemLimit }) => {
-    const itemPerPage = 4;
-    const totalPage = Math.ceil(itemLimit / itemPerPage);
+    const totalPage = itemLimit;
+
     const handlePrevPage = () => {
         if (filters.page > 0) {
             setFilters({
@@ -13,8 +13,9 @@ const Button = ({ filters, setFilters, itemLimit }) => {
         }
     }
     const handleNextPage = () => {
-
-        if (totalPage > filters.page) {
+        console.log(totalPage);
+        console.log(filters.page)
+        if (totalPage > filters.page + 1) {
             setFilters({
                 ...filters,
                 page: filters.page + 1,
@@ -28,8 +29,8 @@ const Button = ({ filters, setFilters, itemLimit }) => {
                 <FaArrowLeft />
                 Prev Page
             </button>
-            <button className={`${totalPage === filters.page && 'opacity-50 cursor-not-allowed'} bg-primary text-white px-4 py-2 flex items-center gap-2 mt-4 text-lg font-poppins rounded-md`}
-                onClick={handleNextPage} disabled={totalPage === filters.page}>
+            <button className={`${totalPage === filters.page + 1 && 'opacity-50 cursor-not-allowed'} bg-primary text-white px-4 py-2 flex items-center gap-2 mt-4 text-lg font-poppins rounded-md`}
+                onClick={handleNextPage} disabled={totalPage === filters.page + 1}>
                 Next Page
                 <FaArrowRight />
             </button>

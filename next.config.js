@@ -5,7 +5,9 @@ const nextConfig = {
   images: {
     domains: ['bayut-production.s3.eu-central-1.amazonaws.com'],
   },
-  
+  env: {
+    MAPS_API_KEY: process.env.MAPS_API_KEY,
+  }
 }
 
 module.exports = nextConfig
