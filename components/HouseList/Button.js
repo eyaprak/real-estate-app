@@ -13,8 +13,6 @@ const Button = ({ filters, setFilters, itemLimit }) => {
         }
     }
     const handleNextPage = () => {
-        console.log(totalPage);
-        console.log(filters.page)
         if (totalPage > filters.page + 1) {
             setFilters({
                 ...filters,

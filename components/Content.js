@@ -41,7 +41,6 @@ const Content = () => {
             setLoading(true);
             const response = await getData('https://bayut.p.rapidapi.com/properties/list', options);
             setHouses(response);
-            console.log(response)
             setLoading(false);
         }
         fetchData();
